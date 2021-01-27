@@ -135,13 +135,12 @@ RUN     pip3 install -r /req/adhoc-account-payment.txt \
     &&  pip3 install -r /req/adhoc-product.txt \
     &&  pip3 install -r /req/oca-server-tools.txt \
     &&  pip3 install -r /req/oca-web.txt \
-    &&  pip3 install -r /req/woocommerce-connector.txt \
     &&  pip3 install -r /req/oca-rest-framework.txt \
     &&  pip3 install -r /req/oca-connector.txt \
     &&  pip3 install -r /req/oca-partner-contact.txt \
     &&  pip3 install -r /req/oca-geospatial.txt \
     &&  pip3 install -r /req/fecr.txt \
-#   &&  pip3 install -r /req/adhoc-reporting-engine.txt # esto no anda por el pycups
+    &&  pip3 install -r /req/oca-openupgradelib.txt \
     &&  pip3 install -r /req/requirements.txt \
     && rm -r /req
 
