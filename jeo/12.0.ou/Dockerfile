@@ -17,12 +17,11 @@ RUN cp -r /opt/openupgrade/addons/* /usr/lib/python3/dist-packages/odoo/addons
 RUN sed -i '/XlsxWriter/d' /opt/openupgrade/requirements.txt
 RUN sed -i '/pyserial/d' /opt/openupgrade/requirements.txt
 RUN sed -i '/pyldap/d' /opt/openupgrade/requirements.txt
-RUN sed -i '/psycopg2/d' /opt/openupgrade/requirements.txt
+#RUN sed -i '/psycopg2/d' /opt/openupgrade/requirements.txt
 RUN sed -i '/psutil/d' /opt/openupgrade/requirements.txt
 RUN sed -i '/greenlet/d' /opt/openupgrade/requirements.txt
 RUN sed -i '/docutils/d' /opt/openupgrade/requirements.txt
 
-
-RUN pip3 install -r /opt/openupgrade/requirements.txt
+RUN pip3 install -r /opt/openupgrade/requirements.txt --ignore-installed
 
 USER odoo

@@ -137,6 +137,7 @@ RUN apt-get install python-dev libssl-dev swig -y -qq
 COPY ./requirements /req
 RUN pip3 install -r /req/adhoc-aeroo_reports.txt
 RUN pip3 install -r /req/adhoc-odoo-argentina.txt
+RUN pip3 install --ignore-installed -r /req/openupgradelib.txt
 RUN rm -r /req
 
 # crear cache para pyafipws lo necesita para actualizar desde padron y darle
