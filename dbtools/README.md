@@ -1,19 +1,21 @@
-Imagen docker con las herramientas de postgres para restaurar un backup
+Docker images with the postgres tools to backup / restore odoo data
 
-uso:
+use:
 
 sudo docker run --rm -i \
     --link postgres_image:db \
-    -v path_al_filestore:/filestore \
+    -v filestore_path:/filestore \
     -v path_al_backup/:/backup \
     --env NEW_DBNAME=database_name \
-    --env ZIPFILE=backup_a_restaurar \
+    --env ZIPFILE=backup_path \
     --env DEACTIVATE=True \
-    jobiols/dbtools
+    --env ACTION=backup \
+    jobiols/dbtools:1.14.2
 
-- postgres_image: nombre de la imagen donde esta el servidor postgres
-- path_al_filestore: ubicacion del filestore a restaurar
-- path_al_backup: ubicacion del archivo de backup a restaurar
-- NEW_DBNAME: nombre de la base a restaurar, si existe la borra, si esta abierta por otras aplicaciones mata las conexiones
-- ZIPFILE: nombre del bakcup a restaurar, si no esta, se trae el mas nuevo
-- DEACTIVATE = True corre el script de desactivacion, si no esta (no vale ponerlo en false, no tiene que estar), no la desactiva
+- postgres_image: image name for the postgres server
+- filestore: path to filestore
+- backup_path: path to backup file
+- DBNAME: database name where restoring it will delete it and kill connections if necesary
+- ZIPFILE: backup filename if ommited it gets the newer when restore or create a unique name when backup
+- DEACTIVATE = [True | False] if True runs deactivation script when restoring
+- ACTION = [backup | restore]

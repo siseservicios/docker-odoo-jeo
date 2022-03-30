@@ -1,10 +1,10 @@
-FROM alpine:3.14
+FROM alpine:3.15
 LABEL Jorge Obiols <jorge.obiols@gmail.com>
 
-RUN apk --update add postgresql-client
+RUN apk --update add postgresql-client zip
+ADD backup.sh /usr/bin/backup.sh
 ADD restore.sh /usr/bin/restore.sh
-ADD extend.sh /usr/bin/extend.sh
+ADD entrypoint.sh /usr/bin/entrypoint.sh
 ADD deactivate.sql /
-ADD extend.sql /
 
-CMD "/usr/bin/restore.sh"
+CMD "/usr/bin/entrypoint.sh"

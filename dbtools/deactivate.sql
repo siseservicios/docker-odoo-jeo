@@ -13,8 +13,3 @@ WHERE
   key  = 'database.enterprise_code' or
   key = 'database.expiration_date' or
   key = 'database.expiration_reason';
-
--- cambiar la contraseña de admin
-UPDATE res_users
-SET login = 'admin', password = 'admin'
-WHERE id = 2;
