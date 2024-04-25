@@ -138,4 +138,14 @@ RUN curl -fsSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
 RUN apt-get -qq update && apt-get install -yqq --no-install-recommends \
     git python3-dev build-essential
 
+# RUN pip3 install git+https://github.com/OCA/openupgradelib/@master
+
+COPY ./requirements /req
+#REVISAR PORQUE DA ERROR
+#RUN pip3 install -r /req/ingadhoc-odoo-argentina-ce-requirements.txt
+#el comando anterior da error con el ERROR: Failed building wheel for M2Crypto
+RUN pip3 install -r /req/ingadhoc-odoo-argentina-requirements.txt
+RUN pip3 install -r /req/oca-reporting-engine-requirements.txt
+RUN rm -r /req
+
 USER odoo
